@@ -36,8 +36,12 @@ router.get("/template/:id", async (req, res) => {
 
 router.post("/template", async (req, res) => {
 	const SendingData = await temp.create({
+		Report: req.body.Report,
 		title: req.body.title,
 		description: req.body.description,
+		subContent: req.body.subContent,
+		FirstForm: req.body.FirstForm,
+		secondForm: req.body.secondForm,
 
 	});
 	try {

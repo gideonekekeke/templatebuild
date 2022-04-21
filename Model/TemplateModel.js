@@ -1,14 +1,32 @@
 const mongoose = require("mongoose");
 
 const mySchema = mongoose.Schema({
+
+	Report : {
+		type : Number
+	},
 	title: {
 		type: String,
-		required: true,
+		
 	},
 	description: {
 		type: String,
-		required: true,
+	
 	},
+	subContent: {
+		type: String,
+	
+	},
+	FirstForm: {
+		type: String,
+	
+	},
+	secondForm: {
+		type: String,
+	
+	},
+
+
 
 }, {timestamps : true});
 

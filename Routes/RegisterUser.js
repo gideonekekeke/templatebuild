@@ -21,5 +21,19 @@ router.post("/register", async (req, res) => {
 		});
 	}
 });
+router.get("/register", async (req, res) => {
+	const SendingData = await userReg.find()
+	try {
+		res.status(201).json({
+			message: "Succefull 💻",
+			data: SendingData,
+		});
+	} catch (error) {
+		res.status(404).json({
+			message: "getting all data failed 😣",
+			data: SendingData,
+		});
+	}
+});
 
 module.exports = router
