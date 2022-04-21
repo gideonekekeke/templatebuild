@@ -57,24 +57,31 @@ router.post("/template", async (req, res) => {
 	}
 });
 
-router.patch("/template/:id", async (req, res) => {
-	try {
-		const updated = await temp.findByIdAndUpdate(
-			req.params.id,
-			req.body,
-		);
-		res.status(200).json({
-			message: "Succefull 💻",
-			data: updated,
-		});
-	} catch (error) {
-		res.status(404).json({
-			message: "getting all data failed 😣",
-			data: updated,
-		});
-	}
+router.patch("/template/:id", async(req, res)=>{
+ try {
+    const editFunc = await temp.findByIdAndUpdate(
+      req.params.id,
+      {
+    	Report: req.body.Report,
+		title: req.body.title,
+		description: req.body.description,
+		subContent: req.body.subContent,
+		FirstForm: req.body.FirstForm,
+		secondForm: req.body.secondForm,
+      },
+      { new: true }
+    );
+    res.status(200).json({
+      message: "Data Edited Sucessfully",
+      data: editFunc,
+    });
+  } catch (error) {
+    res.status(404).json({
+      message: "Failed TO Edit Data",
+      data: error.message,
+    });
+  }
 });
-
 router.delete("/template/:id", async (req, res) => {
 	const deleteUser = await temp.deleteOne(
 		{ username: req.params.id },
