@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const mySchema = mongoose.Schema({
 
 	Report : {
-		type : Number
+		type : String
 	},
 	title: {
 		type: String,

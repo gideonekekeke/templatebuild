@@ -11,7 +11,7 @@ const mySchema = mongoose.Schema({
     
 	},
 	phonenumber: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	password: {

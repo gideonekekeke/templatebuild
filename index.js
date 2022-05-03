@@ -8,6 +8,8 @@ app.use(express.json())
 app.use(cors({origin : "*"}))
 app.use('/api', require('./Routes/TemplateRoute'))
 app.use('/api', require('./Routes/RegisterUser'))
+app.use('/api', require('./Routes/TestRoute'))
+app.use('/api', require('./Routes/RegUser'))
 
 
 app.listen(port,()=>{
